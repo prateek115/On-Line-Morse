@@ -1,0 +1,46 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Encyptor</title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+    <link rel="shortcut icon" type="image/png" href="{%static 'image/circle.png'%}">
+
+</head>
+
+<body>
+  <div class="navbar">
+	<img src="{% static 'image/circle.png'%}" class="logo" height=60px width=60px>
+	<nav>
+		<ul>
+			<li><a href="#">Home</a></li>
+		</ul>
+	</nav>
+  </div>
+  <div class = "content">
+	<h1>Welcome to the encryptor</h1>
+	<p>Encrypt your text in morse code<br>and keep it safe</p>
+  </div>
+  <form action='encrypt' method="post">
+      {% csrf_token %}
+		<textarea id="input-text" name = "input" placeholder="Enter your text here."></textarea><br>
+		<button type="Submit">Convert</button>
+  </form>
+  <div class="line">
+	<p>Your Encrypted text</p>
+  </div>
+  <form>
+		<textarea id="output-text" name = "output">{{analyzed_text}}</textarea>
+  </form>
+
+  <div class="social-link">
+	<a href="https://github.com/prateek115">Github</a>
+	<a href="https://www.instagram.com/prateekgour15/">Instagram</a>
+	<a href="https://www.linkedin.com/feed/">LinkedIn</a>
+  </div>
+
+</body>
+</html>
